@@ -1,6 +1,6 @@
 # InvadedSpace
 
-A classic basic space shooter.
+A classic basic space shooter.<br>
 Created as a schoolproject at Medieprogrammet, Blekinge Tekniska Högskola 2002
 
 Coding by: Richard Bengtsson and Peter Brunni<br>
