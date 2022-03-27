@@ -4,7 +4,7 @@ A classic basic space shooter.
 Created as a schoolproject at Medieprogrammet, Blekinge Tekniska Högskola 2002
 
 Coding by: Richard Bengtsson and Peter Brunni<br>
-Music by: Peter Brunni
+Music by: Peter Brunni<br>
 Graphics by: Richard Bengtsson
 
 Contains deprecated dependencies (AudioClip & Applet)
