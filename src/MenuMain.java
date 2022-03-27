@@ -6,7 +6,7 @@ public class MenuMain extends JFrame implements KeyListener
 {
 
 //----------------------------------------------------------------
-	//gör ett objekt av klassen IntroPanel
+	//gÃ¶r ett objekt av klassen IntroPanel
 	private IntroPanel introPanel;
 	private GamePanel gamePanel;
 
@@ -15,12 +15,12 @@ public class MenuMain extends JFrame implements KeyListener
 	//Konstruktorn
 	public MenuMain()
 	{
-		//initierar Fönstret
+		//initierar FÃ¶nstret
 		initFrame();
 		setVisible(true);
 		getContentPane().setLayout(null);
 
-		//lägger till en KeyListener
+		//lÃ¤gger till en KeyListener
 		addKeyListener(introPanel);
 
 		//initierar introPanelen
@@ -29,21 +29,21 @@ public class MenuMain extends JFrame implements KeyListener
 	}
 
 	//------------------------------------------------------
-	//Initierar fönstret och dess komponenter
+	//Initierar fÃ¶nstret och dess komponenter
 	public void initFrame()
 	{
-		//initiera fönstret
+		//initiera fÃ¶nstret
 		setBounds(200, 100, 600, 576);
 		setResizable(false);
 		setTitle("InvadedSpace");
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 
-		//Lägger till en contentPane till IntroPanelen
+		//LÃ¤gger till en contentPane till IntroPanelen
 		introPanel = new IntroPanel(this);
 		getContentPane().add(introPanel);
 		introPanel.setVisible(true);
 
-		//Lägger till en annan contentPane till GamePanelen
+		//LÃ¤gger till en annan contentPane till GamePanelen
 
 		gamePanel = new GamePanel(this);
 		getContentPane().add(gamePanel);

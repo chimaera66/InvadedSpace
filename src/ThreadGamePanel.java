@@ -17,7 +17,7 @@ public class ThreadGamePanel extends Thread
 	}
 
 //------------------------------------------------------
-	//startar så länge "go" är sant
+	//startar sÃ¥ lÃ¤nge "go" Ã¤r sant
 
 	public void run()
 	{
@@ -51,7 +51,7 @@ public class ThreadGamePanel extends Thread
 
 	//------------------------------------------------------
 
-	//stänger tråden
+	//stÃ¤nger trÃ¥den
 	public void kill()
 	{
 

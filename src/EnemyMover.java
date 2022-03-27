@@ -5,10 +5,10 @@ public class EnemyMover
 	//EnemyClass Matrisen
 	private EnemyClass[][] enemyClass;
 
-	//boolean som kollar vilket håll de rör sig (false = left)
+	//boolean som kollar vilket hÃ¥ll de rÃ¶r sig (false = left)
 	private boolean moveDir = false;
 
-	//max oxh min värden för rörelse
+	//max och min vÃ¤rden fÃ¶r rÃ¶relse
 	private int maxLeft = 12;
 	private int maxRight = 542;
 
@@ -22,7 +22,7 @@ public class EnemyMover
 	//------------------------------------------------------
 	public void move()
 	{
-		//om flytt till vänster
+		//om flytt till vÃ¤nster
 		if (moveDir == false)
 		{
 			for (int i = 0; i < enemyClass.length; i++)
@@ -55,7 +55,7 @@ public class EnemyMover
 				}
 			}
 		}
-		//om flytt till höger
+		//om flytt till hÃ¶ger
 		else
 		{
 			for (int i = 0; i < enemyClass.length; i++)

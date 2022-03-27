@@ -20,7 +20,7 @@ public class ThreadPlayerShot extends Thread
 
 //------------------------------------------------------
 
-//kˆr trÂd, sÂ l‰nge som "go" ‰r sant, med fˆrutbest‰mt delay
+//k√∂r tr√•d, s√• l√§nge som "go" √§r sant, med f√∂rutbest√§mt delay
 	public void run()
 	{
 		go=true;
@@ -43,12 +43,12 @@ public class ThreadPlayerShot extends Thread
 			gamePanel.collisionDetection();
 			gamePanel.setPlayerShotY(YPosition -= 1);
 
-			//tar emot det utav spelaren iv‰gskjutna skotts y-position
+			//tar emot det utav spelaren iv√§gskjutna skotts y-position
 			YPosition2 = gamePanel.getPlayerShotY();
 
 			//---------------------------
 
-			//st‰nger skottrÂden om skottet passerat viss position, i detta fall y-koordinaten 1
+			//st√§nger skottr√•den om skottet passerat viss position, i detta fall y-koordinaten 1
 			if (YPosition2 <= 1)
 			{
 				gamePanel.setShotPassed();
@@ -61,12 +61,12 @@ public class ThreadPlayerShot extends Thread
 
 	//------------------------------------------------------
 
-	//st‰nger trÂden
+	//st√§nger tr√•den
 	public void kill()
 	{
 		go=false;
 
-		//"st‰nger ner" skottet
+		//"st√§nger ner" skottet
 		gamePanel.killPlayerShot();
 	}
 

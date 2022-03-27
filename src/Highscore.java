@@ -12,7 +12,7 @@ public class Highscore implements Serializable
 		highscore = aHighscore;
 	}
 
-	//method för att hämta highscoren från en annan class
+	//method fÃ¶r att hÃ¤mta highscoren frÃ¥n en annan class
 	public int getHighscore()
 	{
 		return highscore;

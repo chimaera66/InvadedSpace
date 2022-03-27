@@ -5,13 +5,13 @@ public class ThreadIntroPanel extends Thread
 
 	private long delay;
 
-	//Ska tråden köras?
+	//Ska trÃ¥den kÃ¶ras?
 	//false = nej
 	//true = ja
 	private boolean go;
 
-	//Innehåller info om vilken tråd som ska visas,
-	//skickas från MenuMain
+	//InnehÃ¥ller info om vilken trÃ¥d som ska visas,
+	//skickas frÃ¥n MenuMain
 	//BGText = BGText Scrollen
 	//InsertCoin = InsertCoin "Blinken"
 	private String thread;
@@ -21,17 +21,17 @@ public class ThreadIntroPanel extends Thread
 
 //------------------------------------------------------
 
-	//Innehåller info om InsertCoin ska visas eller inte
+	//InnehÃ¥ller info om InsertCoin ska visas eller inte
 	//0 = Visa inte
 	//1 = Visa
 	private int show;
 
 //--------------------
 
-	//Y Positionen för BGText
+	//Y Positionen fÃ¶r BGText
 	private int bgTextYPosition;
 
-	//Y Positionen för bakgrunds stjärnorna
+	//Y Positionen fÃ¶r bakgrunds stjÃ¤rnorna
 	private int bgStarsPosY;
 
 //------------------------------------------------------
@@ -55,8 +55,8 @@ public class ThreadIntroPanel extends Thread
 		{
 			try
 			{
-				// metod ärvd från Thread, tar emot en long
-				// som betämmer hur många millisekunder den skall
+				// metod Ã¤rvd frÃ¥n Thread, tar emot en long
+				// som betÃ¤mmer hur mÃ¥nga millisekunder den skall
 				// sova. 1000millisekunder = 1sekund
 				sleep(delay);
 			}
@@ -77,7 +77,7 @@ public class ThreadIntroPanel extends Thread
 
 					if (go)
 					{
-						//Uppdaterar positionen för BGText
+						//Uppdaterar positionen fÃ¶r BGText
 						//Samt ritar ut den
 
 						bgTextYPosition = introPanel.getBGTextY();
@@ -97,7 +97,7 @@ public class ThreadIntroPanel extends Thread
 					{
 						//Om variabeln show = 0, visa inte InsertCoin
 						case 0:
-							//Skriver ut i dosfönstret(för debugging)
+							//Skriver ut i dosfÃ¶nstret(fÃ¶r debugging)
 							System.out.println();
 							System.out.println("Hide InsertCoin");
 
@@ -105,13 +105,13 @@ public class ThreadIntroPanel extends Thread
 							introPanel.paintScreen("BGText");
 							introPanel.repaint();
 
-							//Ändrar variabeln för om InsertCoin ska visas eller inte
+							//Ã¤ndrar variabeln fÃ¶r om InsertCoin ska visas eller inte
 							show = 1;
 							break;
 
 						//Om variabeln show = 1, visa InsertCoin
 						case 1:
-							//Skriver ut i dosfönstret(för debugging)
+							//Skriver ut i dosfÃ¶nstret(fÃ¶r debugging)
 							System.out.println();
 							System.out.println("Show InsertCoin");
 
@@ -119,13 +119,13 @@ public class ThreadIntroPanel extends Thread
 							introPanel.paintScreen("InsertCoin");
 							introPanel.repaint();
 
-							//Ändrar variabeln för om InsertCoin ska visas eller inte
+							//Ã¤ndrar variabeln fÃ¶r om InsertCoin ska visas eller inte
 							show = 0;
 							break;
 					}
 				}
 
-				//-= Animerar stjärnbakgrunden =-
+				//-= Animerar stjÃ¤rnbakgrunden =-
 				else if(thread == "AnimateStars")
 				{
 					introPanel.animateBGStars();
@@ -142,7 +142,7 @@ public class ThreadIntroPanel extends Thread
 
 //------------------------------------------------------
 
-	//Stänger Tråden
+	//StÃ¤nger TrÃ¥den
 	public void kill()
 	{
 		go = false;

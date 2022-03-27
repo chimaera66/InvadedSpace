@@ -22,7 +22,7 @@ public class ThreadEnemyMove extends Thread
 	}
 
 //------------------------------------------------------
-	//startar så länge "go" är sant
+	//startar sÃ¥ lÃ¤nge "go" Ã¤r sant
 	public void run()
 	{
 		go=true;
@@ -49,7 +49,7 @@ public class ThreadEnemyMove extends Thread
 
 	//------------------------------------------------------
 
-	//stänger tråden
+	//stÃ¤nger trÃ¥den
 	public void kill()
 	{
 		go=false;

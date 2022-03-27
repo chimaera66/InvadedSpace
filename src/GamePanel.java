@@ -35,7 +35,7 @@ public class GamePanel extends JPanel implements KeyListener
 	Graphics bufferGraphics;
 
 
-	//boolean som håller koll på om bilderna är laddade
+	//boolean som hÃ¥ller koll pÃ¥ om bilderna Ã¤r laddade
 	private boolean imagesLoaded = false;
 //---------------------------------
 	//Musikkomponenter
@@ -66,17 +66,17 @@ public class GamePanel extends JPanel implements KeyListener
 	final int highscoreX2 = 20;
 	private int highscoreX = highscoreX2;
 
-	//gör object av highscore
+	//gÃ¶r object av highscore
 	Highscore highscore;
 	//new highscore
 	Highscore newHighscore;
-	//gör object av Poäng Konverteraren
+	//gÃ¶r object av PoÃ¤ng Konverteraren
 	ScoreConverter scoreConverter = new ScoreConverter();
 
-	//gör en int som innehåller highscore siffrorna
+	//gÃ¶r en int som innehÃ¥ller highscore siffrorna
 	private int intHighscore[] = new int[9];
 
-	//Poängvariabler
+	//PoÃ¤ngvariabler
 	private int score = 0;
 
 //-----------------------
@@ -89,10 +89,10 @@ public class GamePanel extends JPanel implements KeyListener
 	final int ammoXPosition2 = 534;
 	private int ammoXPosition = ammoXPosition2;
 
-	//gör object av Poäng Konverteraren
+	//gÃ¶r object av PoÃ¤ng Konverteraren
 	ScoreConverter ammoConverter = new ScoreConverter();
 
-	//gör en int som innehåller highscore siffrorna
+	//gÃ¶r en int som innehÃ¥ller highscore siffrorna
 	private int intAmmo[] = new int[2];
 
 //-----------------------
@@ -144,7 +144,7 @@ public class GamePanel extends JPanel implements KeyListener
 		enemyMover = new EnemyMover(enemyClass);
 
 	}
-	//kör igång panelen
+	//kÃ¶r igÃ¥ng panelen
 	public void startPanel()
 	{
 		setVisible(true);
@@ -157,20 +157,20 @@ public class GamePanel extends JPanel implements KeyListener
 		//startar musiken
 		gameMusic.getMusic("music_InGame.wav");
 
-		//startar trådar
+		//startar trÃ¥dar
 		startEnemyThread();
 		startRepaintThread();
 
-		//keylistenern på
+		//keylistenern pÃ¥
 		setListenerStatus(true);
 
 	}
-	//stänger av panelern
+	//stÃ¤nger av panelern
 	public void hidePanel()
 	{
-		//Stänger Enemy tråden
+		//StÃ¤nger Enemy trÃ¥den
 		killEnemyThread();
-		//Stänger Repaint tråden
+		//StÃ¤nger Repaint trÃ¥den
 		killRepaintThread();
 
 		//stoppar musiken
@@ -179,16 +179,16 @@ public class GamePanel extends JPanel implements KeyListener
 		//keylistener av
 		setListenerStatus(false);
 
-		//panelen gömd
+		//panelen gÃ¶md
 		setVisible(false);
 	}
 
 //--------------------------------------------------------
-	//läser in bilder
+	//lÃ¶ser in bilder
 	public void loadImages()
 	{
 
-		//läser in bakgrundsbilden
+		//lÃ¶ser in bakgrundsbilden
 		ImageIcon tempIcon = new ImageIcon("images/background.gif");
 		imageBackground = tempIcon.getImage();
 
@@ -205,15 +205,15 @@ public class GamePanel extends JPanel implements KeyListener
 		tempIcon = new ImageIcon("images/game_gameover.gif");
 		imageGameOver = tempIcon.getImage();
 
-		//tar hand om inläsning av spelare
+		//tar hand om inlÃ¤sning av spelare
 		tempIcon = new ImageIcon("images/game_player.gif");
 		imagePlayer = tempIcon.getImage();
 
-		//tar hand om inläsning av fienden
+		//tar hand om inlÃ¤sning av fienden
 		tempIcon = new ImageIcon("images/game_enemy.gif");
 		imageEnemy = tempIcon.getImage();
 
-		//tar hand om inläsning av spelarens skott
+		//tar hand om inlÃ¤sning av spelarens skott
 		tempIcon = new ImageIcon("images/game_player_laser.gif");
 		imagePlayerShot = tempIcon.getImage();
 
@@ -229,7 +229,7 @@ public class GamePanel extends JPanel implements KeyListener
 	}
 
 //---------------------------------------------------------
-	//Ritar ut alla bilder som lästes in i föregående metod
+	//Ritar ut alla bilder som lÃ¤stes in i fÃ¶regÃ¥ende metod
 
 	public void paintScreen()
 	{
@@ -306,7 +306,7 @@ public class GamePanel extends JPanel implements KeyListener
 		}
 	}
 
-	//Ritar ut allt i bufferten till skärmen
+	//Ritar ut allt i bufferten till skÃ¤rmen
 	public void paint(Graphics g)
 	{
 		super.paint(g);
@@ -321,7 +321,7 @@ public class GamePanel extends JPanel implements KeyListener
 //Metoder med diverse funktioner
 
 
-	//initierar och startar skottråden vid tryck på spacetangent (se keylistener)
+	//initierar och startar skottrÃ¥den vid tryck pÃ¥ spacetangent (se keylistener)
 	public void playerShot()
 	{
 		playerShot = new ThreadPlayerShot(25, this);
@@ -329,38 +329,38 @@ public class GamePanel extends JPanel implements KeyListener
 
 	}
 
-	//returnerar y-koordinaten för spelarens ivägskjutna skott
+	//returnerar y-koordinaten fÃ¶r spelarens ivÃ¤gskjutna skott
 	public int getPlayerShotY()
 	{
 		return playerShotY;
 	}
 
-	//returnerar x-koordinaten för spelarens ivägskjutna skott
+	//returnerar x-koordinaten fÃ¶r spelarens ivÃ¤gskjutna skott
 	public int getPlayerShotX()
 		{
 			return playerShotX;
 	}
 
-	//flyttar, med hjälp av skottråden, på skottet i y-led
+	//flyttar, med hjÃ¤lp av skottrÃ¥den, pÃ¥ skottet i y-led
 	public void setPlayerShotY(int shotMove)
 	{
 		playerShotY += shotMove;
 	}
 
-	//stänger av utritningen av skott när kraven i skottråden uppfyllts
+	//stÃ¤nger av utritningen av skott nÃ¤r kraven i skottrÃ¥den uppfyllts
 	public void killPlayerShot()
 	{
 		ritaSkott = 0;
 		playerShotY = 470;
 	}
 
-	//ändrar hit-booleanen efter kollision som inträffat upphör
+	//Ã„ndrar hit-booleanen efter kollision som intrÃ¤ffat upphÃ¶r
 	public void setHit()
 	{
 		hit = false;
 	}
 
-	//sätter "skott har passerat"-booleanen till sant
+	//sÃ¤tter "skott har passerat"-booleanen till sant
 	public void setShotPassed()
 	{
 		shotPassed = true;
@@ -379,14 +379,14 @@ public class GamePanel extends JPanel implements KeyListener
 		return enemyXPosition;
 	}
 
-	//debugmetod som skriver ut i promten när kollision mellan skott och fiende inträffar
+	//debugmetod som skriver ut i promten nÃ¤r kollision mellan skott och fiende intrÃ¤ffar
 	public void hit()
 	{
 		System.out.println("Hit");
 		setHit();
 	}
 
-	//metod som kontrollerar ifall alla fienden är skjutna och, om det är sant och spelaren har skott kvar, belönar spelaren nya skott
+	//metod som kontrollerar ifall alla fienden Ã¤r skjutna och, om det Ã¤r sant och spelaren har skott kvar, belÃ¶nar spelaren nya skott
 	public void checker()
 	{
 		if (shotsLeft>=0)
@@ -420,13 +420,13 @@ public class GamePanel extends JPanel implements KeyListener
 		}
 	}
 
-	//metod som sätter poängen
+	//metod som sÃ¤tter poÃ¤ngen
 	public void setScore(int aScore)
 	{
 		score = aScore;
 	}
 
-	//returnerar poängen
+	//returnerar poÃ¤ngen
 	public int getScore()
 	{
 		return score;
@@ -434,7 +434,7 @@ public class GamePanel extends JPanel implements KeyListener
 
 //---------------------------------------------------------
 
-	//kollisionshantering som kontrollerar ifall skott och fiende befinner sig inom samma område. när detta inträffar räknas det som träff och då utförs de då lämpliga handlingarna.
+	//kollisionshantering som kontrollerar ifall skott och fiende befinner sig inom samma omrÃ¥de. nÃ¤r detta intrÃ¤ffar rÃ¤knas det som trÃ¤ff och dÃ¥ utfÃ¶rs de lÃ¤mpliga handlingarna.
 	public void collisionDetection()
 	{
 		if(hit!=true)
@@ -471,8 +471,8 @@ public class GamePanel extends JPanel implements KeyListener
 //---------------------------------------------------------
 
 
-	//kontrollerar vid "game over" om spelaren har uppnått en högre poäng än tidigare högsta ihopspelade summa.
-	//om det stämmer så skriver programmet in den nya "high score":n i en fil som håller poängen även vid programavslut
+	//kontrollerar vid "game over" om spelaren har uppnÃ¥tt en hÃ¶gre poÃ¤ng Ã¤n tidigare hÃ¶gsta ihopspelade summa.
+	//om det stÃ¤mmer sÃ¥ skriver programmet in den nya "high score":n i en fil som hÃ¥ller poÃ¤ngen Ã¤ven vid programavslut
 	public void checkHighscore()
 	{
 
@@ -494,10 +494,10 @@ public class GamePanel extends JPanel implements KeyListener
 
 //---------------------------------------------------------
 
-	//boolean som håller reda på ifall spelaren har möjlighet att fortsätta spelet
+	//boolean som hÃ¥ller reda pÃ¥ ifall spelaren har mÃ¶jlighet att fortsÃ¤tta spelet
 	boolean gameOver = false;
 
-	//kontrollerar ifall spelaren får fortsätta, om inte så avslutas spelet
+	//kontrollerar ifall spelaren fÃ¥r fortsÃ¤tta, om inte sÃ¥ avslutas spelet
 	public void gameOver()
 	{
 		if(shotsLeft==0 && shotPassed!=false)
@@ -519,14 +519,14 @@ public class GamePanel extends JPanel implements KeyListener
 	}
 
 //---------------------------------------------------------
-	//startar "repaint"-tråden
+	//startar "repaint"-trÃ¥den
 	public void startRepaintThread()
 	{
 		repaintThread = new ThreadGamePanel(0, this);
 		repaintThread.start();
 	}
 
-	//stänger "repaint"-tråden
+	//stÃ¤nger "repaint"-trÃ¥den
 	public void killRepaintThread()
 	{
 		repaintThread.kill();
@@ -540,7 +540,7 @@ public class GamePanel extends JPanel implements KeyListener
 		enemyThread.start();
 	}
 
-	//stänger enemythread
+	//stÃ¤nger enemythread
 	public void killEnemyThread()
 	{
 		enemyThread.kill();
@@ -549,22 +549,22 @@ public class GamePanel extends JPanel implements KeyListener
 //----------------------------------------------------------------
 //----------------------------------------------------------------
 //----------------------------------------------------------------
-	//sätter om keylistenern ska vara av eller på
+	//sÃ¤tter om keylistenern ska vara av eller pÃ¥
 	public void setListenerStatus(boolean aGo)
 	{
 		go = aGo;
 	}
 	//-------------------------------
-	//Metod för att ändra KeyListener
+	//Metod fÃ¶r att Ã¤ndra KeyListener
 	public void setKeyListener(String aListener)
 	{
 		listenerChoice = aListener;
 	}
 
-	//Vilken keylistener används?
+	//Vilken keylistener anvÃ¤nds?
 	private String listenerChoice = "Game";
 
-	//Ska keylistenern vara av eller på?
+	//Ska keylistenern vara av eller pÃ¥?
 	boolean go = false;
 
 	//Keylistener
@@ -574,7 +574,7 @@ public class GamePanel extends JPanel implements KeyListener
 		{
 			if(listenerChoice == "Game")
 			{
-				// vänsterpil kod 37
+				// vÃ¤nsterpil kod 37
 				if (event.getKeyCode() == 37)
 				{
 					if (ableToShoot!=false)
@@ -590,7 +590,7 @@ public class GamePanel extends JPanel implements KeyListener
 					}
 				}
 
-				//högerpil kod 39
+				//hÃ¶gerpil kod 39
 				else if(event.getKeyCode() == 39)
 				{
 					if (ableToShoot!=false)
@@ -642,7 +642,7 @@ public class GamePanel extends JPanel implements KeyListener
 				if (event.getKeyCode() == 10)
 				{
 
-					//gömmer panelen
+					//gÃ¶mmer panelen
 					hidePanel();
 
 					System.out.println();

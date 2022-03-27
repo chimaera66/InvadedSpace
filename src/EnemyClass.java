@@ -39,14 +39,14 @@ public class EnemyClass {
 		return enemyYPosition;
 	}
 
-	//s‰tter fiendens x-position
+	//s√§tter fiendens x-position
 	public void setEnemyXPosition(int _enemyXPosition)
 	{
 		enemyXPosition += _enemyXPosition;
 
 	}
 
-	// s‰tter fiendens y-position
+	// s√§tter fiendens y-position
 	public void setEnemyYPosition(int _enemyYPosition)
 	{
 		enemyYPosition += _enemyYPosition;

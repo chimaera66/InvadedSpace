@@ -1,11 +1,11 @@
 public class ScoreConverter
 {
-	//int som innehåller ental, tiotal mm
+	//int som innehÃ¥ller ental, tiotal mm
 	private int highscore[] = new int[9];
-	//int som tar emot poängen som ska konverteras
+	//int som tar emot poÃ¤ngen som ska konverteras
 	private int convertScore;
-	//int som används för att hålla koll på hur många
-	//gånger for-loopen ska köras
+	//int som anvÃ¤nds fÃ¶r att hÃ¥lla koll pÃ¥ hur mÃ¥nga
+	//gÃ¥nger for-loopen ska kÃ¶ras
 	private int score;
 
 //----------------------------------------------------
@@ -19,7 +19,7 @@ public class ScoreConverter
 	}
 
 //----------------------------------------------------
-	//funktion för att convertera ett givet tal till ental, tiotal mm..
+	//funktion fÃ¶r att convertera ett givet tal till ental, tiotal mm..
 	public void convertScore(int aConvertScore)
 	{
 		convertScore = aConvertScore;
@@ -73,14 +73,14 @@ public class ScoreConverter
 	}
 
 //----------------------------------------------------
-	//funktion för att hämta den konverterade poängen
+	//funktion fÃ¶r att hÃ¤mta den konverterade poÃ¤ngen
 	public int getConvertedScore(int aScore)
 	{
 		return highscore[aScore];
 	}
 
 //---------------------
-	//funktion för att nollställa den converterade poängen
+	//funktion fÃ¶r att nollstÃ¤lla den converterade poÃ¤ngen
 	public void resetScore()
 	{
 		score = 0;
@@ -93,7 +93,7 @@ public class ScoreConverter
 	}
 
 //---------------------
-	//funktion för att skriva ut okonverterade poängen
+	//funktion fÃ¶r att skriva ut okonverterade poÃ¤ngen
 	public void printScore()
 	{
 

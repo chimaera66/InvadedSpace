@@ -6,7 +6,7 @@ public class Sounds
 {
 
 //----------------------------------------------------------------
-	//Tar emot str‰ngar frÂn de klasser som anv‰nder sig av ljud
+	//Tar emot str√§ngar fr√•n de klasser som anv√§nder sig av ljud
 	private String music;
 	private String SFX;
 

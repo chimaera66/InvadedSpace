@@ -11,13 +11,13 @@ public class IntroPanel extends JPanel implements KeyListener
 	//Svart Bakgrund
 	private Image imageBackground;
 
-	//Stj‰rn Bakgrunder
+	//Stj√§rn Bakgrunder
 	private Image imageBackgroundStars[];
 
 	//siffror
 	private Image imageHighscoreNumbers[];
 
-	//Menytext + markˆr
+	//Menytext + mark√∂r
 	private Image imageMainCursor;
 	private Image imageStartGame;
 	private Image imageExit;
@@ -37,7 +37,7 @@ public class IntroPanel extends JPanel implements KeyListener
 	Graphics bufferGraphics;
 
 
-	//boolean som hÂller koll pÂ om bilderna ‰r laddade
+	//boolean som h√•ller koll p√• om bilderna √§r laddade
 	private boolean imagesLoaded = false;
 //--------------------------------
 	//Musik komponenter
@@ -49,15 +49,15 @@ public class IntroPanel extends JPanel implements KeyListener
 	private Sounds menu_sfx1 = new Sounds();
 
 //----------------------------------
-	//Positions best‰mmare
+	//Positions best√§mmare
 
-	//markˆrens start position i pixlar
+	//mark√∂rens start position i pixlar
 	private int cursorPosition = 314;
 
 	//bakgrundstextens(BGText) position
 	private int bgTextYPosition = 600;
 
-	//markˆrens start position pÂ sk‰rmen (1 Start, 2 Highscores, 3 Exit)
+	//mark√∂rens start position p√• sk√§rmen (1 Start, 2 Highscores, 3 Exit)
 	private int position = 1;
 
 //-----------------------
@@ -67,26 +67,26 @@ public class IntroPanel extends JPanel implements KeyListener
 	final int highscoreX2 = 217;
 	private int highscoreX = highscoreX2;
 
-	//gˆr object av highscore
+	//g√∂r object av highscore
 	Highscore highscore;
-	//gˆr object av Po‰ng Konverteraren
+	//g√∂r object av Po√§ng Konverteraren
 	ScoreConverter scoreConverter = new ScoreConverter();
 
-	//gˆr en int som innehÂller highscore siffrorna
+	//g√∂r en int som inneh√•ller highscore siffrorna
 	private int intHighscore[] = new int[9];
 
 //----------------------------------
-	//Animerings best‰mmare
+	//Animerings best√§mmare
 	private int animateStars = 0;
 
 //----------------------------------
-	//TrÂden som hanterar text scrollningen
+	//Tr√•den som hanterar text scrollningen
 	private ThreadIntroPanel threadBGTextScroll;
 
-	//TrÂden som hanterar animationen av bakgrunds stj‰rnorna
+	//Tr√•den som hanterar animationen av bakgrunds stj√§rnorna
 	private ThreadIntroPanel threadBGStars;
 
-	//TrÂden som hanterar InsertCoin "Animeringen"
+	//Tr√•den som hanterar InsertCoin "Animeringen"
 	private ThreadIntroPanel threadInsertCoin;
 
 //----------------------------------
@@ -112,11 +112,11 @@ public class IntroPanel extends JPanel implements KeyListener
 
 		//laddar bilder
 		loadImages();
-		//kˆr igÂng panelen
+		//k√∂r ig√•ng panelen
 		startPanel();
 
 	}
-	//kˆr igÂng panelen
+	//k√∂r ig√•ng panelen
 	public void startPanel()
 	{
 		setVisible(true);
@@ -129,18 +129,18 @@ public class IntroPanel extends JPanel implements KeyListener
 		//startar musiken
 		introMusic.getMusic("music_Menu.wav");
 
-		//startar text-scrollen och stj‰rn animeringen
+		//startar text-scrollen och stj√§rn animeringen
 		startBGTextScroll();
 		startBGStars();
 
-		//keylistenern pÂ
+		//keylistenern p√•
 		setListenerStatus(true);
 	}
 
-	//st‰nger av panelern
+	//st√§nger av panelern
 	public void hidePanel()
 	{
-		//st‰nger stj‰rn animeringen
+		//st√§nger stj√§rn animeringen
 		killBGStars();
 
 		//stoppar musiken
@@ -149,22 +149,22 @@ public class IntroPanel extends JPanel implements KeyListener
 		//keylistener av
 		setListenerStatus(false);
 
-		//panelen gˆmd
+		//panelen g√∂md
 		setVisible(false);
 
 	}
 
 //------------------------------------------------------
 
-	//L‰ser in bilder
+	//L√§ser in bilder
 	public void loadImages()
 	{
 
-		//l‰ser in bakgrundsbildern
+		//l√§ser in bakgrundsbildern
 		ImageIcon tempIcon = new ImageIcon("images/background.gif");
 		imageBackground = tempIcon.getImage();
 
-		//l‰ser in stj‰rnbakgrunder
+		//l√§ser in stj√§rnbakgrunder
 		imageBackgroundStars = new Image[3];
 
 
@@ -177,14 +177,14 @@ public class IntroPanel extends JPanel implements KeyListener
 			imageHighscoreNumbers[i] = tempIcon.getImage();
 		}
 
-		//laddar bakgrundsstj‰rnor
+		//laddar bakgrundsstj√§rnor
 		for (int picnr = 0; picnr < imageBackgroundStars.length; picnr++)
 		{
 			tempIcon = new ImageIcon("images/mainmenu_stars01_" + picnr + ".gif");
 			imageBackgroundStars[picnr] = tempIcon.getImage();
 		}
 
-		//l‰ser in menytexten + markˆren
+		//l√§ser in menytexten + mark√∂ren
 		tempIcon = new ImageIcon("images/mainmenu_cursor.gif");
 		imageMainCursor = tempIcon.getImage();
 
@@ -194,7 +194,7 @@ public class IntroPanel extends JPanel implements KeyListener
 		tempIcon = new ImageIcon("images/mainmenu_exit.gif");
 		imageExit = tempIcon.getImage();
 
-		//l‰ser in bakgrundstexten
+		//l√§ser in bakgrundstexten
 		tempIcon = new ImageIcon("images/mainmenu_r_highscore.gif");
 		imageR_Highscore = tempIcon.getImage();
 
@@ -204,7 +204,7 @@ public class IntroPanel extends JPanel implements KeyListener
 		tempIcon = new ImageIcon("images/mainmenu_allrightsreserved.gif");
 		imageAllRightsReserved = tempIcon.getImage();
 
-		//l‰ser in InsertCoin Texten
+		//l√§ser in InsertCoin Texten
 		tempIcon = new ImageIcon("images/mainmenu_insertcoin.gif");
 		imageInsertCoin = tempIcon.getImage();
 
@@ -221,16 +221,16 @@ public class IntroPanel extends JPanel implements KeyListener
 	}
 
 	//------------------------------------------------------
-	//Str‰ng som innehÂller information om vilken grafikdel
-	//som ska ritas ut pÂ sk‰rmen
+	//Str√§ng som inneh√•ller information om vilken grafikdel
+	//som ska ritas ut p√• sk√§rmen
 	String screen;
 
-	//Ritar ut alla bilder som l‰stes in i fˆregÂende metod
+	//Ritar ut alla bilder som l√§stes in i f√∂reg√•ende metod
 	public void paintScreen(String aScreen)
 	{
 		screen = aScreen;
 
-		//om bilderna ‰r laddade, rita ut bilderna
+		//om bilderna √§r laddade, rita ut bilderna
 		if(imagesLoaded)
 		{
 			//Bakgrundstexten
@@ -238,12 +238,12 @@ public class IntroPanel extends JPanel implements KeyListener
 			{
 				//bakgrunden
 				bufferGraphics.drawImage(imageBackground, 0, 0, this);
-				//bakgrundsstj‰rnorna
+				//bakgrundsstj√§rnorna
 				bufferGraphics.drawImage(imageBackgroundStars[animateStars], 0, 0, this);
-				//rˆd highscore text
+				//r√∂d highscore text
 				bufferGraphics.drawImage(imageR_Highscore, 217, bgTextYPosition, this);
 
-				//Highscore po‰ngen
+				//Highscore po√§ngen
 				bufferGraphics.drawImage(imageHighscoreNumbers[intHighscore[8]], highscoreX, bgTextYPosition + 20, this);
 				highscoreX += 19;
 				bufferGraphics.drawImage(imageHighscoreNumbers[intHighscore[7]], highscoreX, bgTextYPosition + 20, this);
@@ -265,21 +265,21 @@ public class IntroPanel extends JPanel implements KeyListener
 
 				highscoreX = highscoreX2;
 
-				//texten l‰ngst ner
+				//texten l√§ngst ner
 				bufferGraphics.drawImage(imageBodySoftware, 104, bgTextYPosition + 427, this);
 				bufferGraphics.drawImage(imageAllRightsReserved, 142, bgTextYPosition + 465, this);
 			}
-			//Insert Coin sk‰rmen
+			//Insert Coin sk√§rmen
 			else if (screen == "InsertCoin")
 			{
 				//bakgrunden
 				bufferGraphics.drawImage(imageBackground, 0, 0, this);
-				//bakgrundsstj‰rnorna
+				//bakgrundsstj√§rnorna
 				bufferGraphics.drawImage(imageBackgroundStars[animateStars], 0, 0, this);
-				//rˆd highscore text
+				//r√∂d highscore text
 				bufferGraphics.drawImage(imageR_Highscore, 217, bgTextYPosition, this);
 
-				//Highscore po‰ngen
+				//Highscore po√§ngen
 				bufferGraphics.drawImage(imageHighscoreNumbers[intHighscore[8]], highscoreX, bgTextYPosition + 20, this);
 				highscoreX += 19;
 				bufferGraphics.drawImage(imageHighscoreNumbers[intHighscore[7]], highscoreX, bgTextYPosition + 20, this);
@@ -301,7 +301,7 @@ public class IntroPanel extends JPanel implements KeyListener
 
 				highscoreX = highscoreX2;
 
-				//texten l‰ngst ner
+				//texten l√§ngst ner
 				bufferGraphics.drawImage(imageBodySoftware, 104, bgTextYPosition + 427, this);
 				bufferGraphics.drawImage(imageAllRightsReserved, 142, bgTextYPosition + 465, this);
 				//InsertCoin blinken
@@ -312,9 +312,9 @@ public class IntroPanel extends JPanel implements KeyListener
 			{
 				//bakgrunden
 				bufferGraphics.drawImage(imageBackground, 0, 0, this);
-				//bakgrundsstj‰rnorna
+				//bakgrundsstj√§rnorna
 				bufferGraphics.drawImage(imageBackgroundStars[animateStars], 0, 0, this);
-				//rˆd highscore text
+				//r√∂d highscore text
 				bufferGraphics.drawImage(imageR_Highscore, 217, bgTextYPosition, this);
 
 				//Highscore
@@ -339,17 +339,17 @@ public class IntroPanel extends JPanel implements KeyListener
 
 				highscoreX = highscoreX2;
 
-				//texten l‰ngst ner
+				//texten l√§ngst ner
 				bufferGraphics.drawImage(imageBodySoftware, 104, bgTextYPosition + 427, this);
 				bufferGraphics.drawImage(imageAllRightsReserved, 142, bgTextYPosition + 465, this);
 				//menyn
 				bufferGraphics.drawImage(imageStartGame, 255, 314, this);
 				bufferGraphics.drawImage(imageExit, 255, 354, this);
-				//markˆren
+				//mark√∂ren
 				bufferGraphics.drawImage(imageMainCursor, 217, cursorPosition, this);
 			}
 
-			//rensa sk‰rmen
+			//rensa sk√§rmen
 			else if (screen == "ClearScreen")
 			{
 				bufferGraphics.drawImage(imageBackground, 0, 0, this);
@@ -359,7 +359,7 @@ public class IntroPanel extends JPanel implements KeyListener
 
 	}
 
-	//Ritar ut allt i bufferten till sk‰rmen
+	//Ritar ut allt i bufferten till sk√§rmen
 	public void paint(Graphics g)
 	{
 		super.paint(g);
@@ -370,21 +370,21 @@ public class IntroPanel extends JPanel implements KeyListener
 	}
 
 //---------------------
-	//laddar highscore po‰ngen
+	//laddar highscore po√§ngen
 	public void loadHighscore()
 	{
-		//nollst‰ller scoreConvertern
+		//nollst√§ller scoreConvertern
 		scoreConverter.resetScore();
 
-		//laddar highscore po‰ngen frÂn fil till ett Highscore objekt
+		//laddar highscore po√§ngen fr√•n fil till ett Highscore objekt
 		highscore = (Highscore) DiskObjectIO.readFromFile("hiscore.hsc");
 
-		//converterar highscore po‰ngen till ental, tiotal osv.
+		//converterar highscore po√§ngen till ental, tiotal osv.
 		scoreConverter.convertScore(highscore.getHighscore());
 		scoreConverter.printScore();
 
-		//l‰gger highscoren i en array sÂ att man kan
-		//anv‰nda den fˆr att skriva ut fonterna
+		//l√§gger highscoren i en array s√• att man kan
+		//anv√§nda den f√∂r att skriva ut fonterna
 		for(int i = 0; i < 9; i++)
 		{
 			intHighscore[i] = scoreConverter.getConvertedScore(i);
@@ -394,7 +394,7 @@ public class IntroPanel extends JPanel implements KeyListener
 
 //----------------------------------------------------------------
 
-	//ƒndrar den bild i stj‰rnbakgrundens animation som visas
+	//√Ñndrar den bild i stj√§rnbakgrundens animation som visas
 	public void animateBGStars()
 	{
 		if(animateStars == 0)
@@ -410,55 +410,55 @@ public class IntroPanel extends JPanel implements KeyListener
 			animateStars = 0;
 		}
 
-		//om menylyssnaren ‰r Choices sÂ ritas
-		//stj‰rnbakgrunden ut kontinuerligt
+		//om menylyssnaren √§r Choices s√• ritas
+		//stj√§rnbakgrunden ut kontinuerligt
 		if(listenerChoice == "Choices")
 		{
 			paintScreen("Choices");
 			repaint();
 		}
 
-		//skriver ut vilken stj‰rnanimations bild som visas(debugging)
+		//skriver ut vilken stj√§rnanimations bild som visas(debugging)
 		System.out.println("Stars Animation Frame: " + animateStars);
 
 	}
 
 	//------------------------------------------------------
-	//H‰mtar BGText's position
+	//H√§mtar BGText's position
 	public int getBGTextY()
 	{
 		return bgTextYPosition;
 	}
 
-	//‰ndrar positionen pÂ BGText
+	//√Ñndrar positionen p√• BGText
 	public void setBGTextY(int y)
 	{
 		bgTextYPosition = y;
 
 		System.out.println("BGText Y Position: " + bgTextYPosition);
 
-		//Om positionen ‰r 30, st‰ng av scrollningen och
-		//starta InsertCoin trÂden
+		//Om positionen √§r 30, st√§ng av scrollningen och
+		//starta InsertCoin tr√•den
 		if (bgTextYPosition <= 30)
 		{
-			//st‰nger text scrollen
+			//st√§nger text scrollen
 			killBGTextScroll();
-			//‰ndrar keylistenern
+			//√Ñndrar keylistenern
 			setListenerChoice("InsertCoin");
-			//startar insertcoin trÂden
+			//startar insertcoin tr√•den
 			startInsertCoin();
 		}
 	}
 
 	//------------------------------------------------------
 
-	//H‰mtar markˆrens position
+	//H√§mtar mark√∂rens position
 	public int getCursorPosition()
 	{
 		return cursorPosition;
 	}
 
-	//best‰mmer markˆrens position
+	//best√§mmer mark√∂rens position
 	public void setCursorPosition(int y)
 	{
 		//Position 1, Start
@@ -477,29 +477,29 @@ public class IntroPanel extends JPanel implements KeyListener
 	}
 
 	//------------------------------------------------------
-	//startar textscroll trÂden
+	//startar textscroll tr√•den
 	public void startBGTextScroll()
 	{
-		//nollst‰ller bakgrundstextens position
+		//nollst√§ller bakgrundstextens position
 		bgTextYPosition = 600;
 
 		threadBGTextScroll = new ThreadIntroPanel(0, "BGText", this);
 		threadBGTextScroll.start();
 	}
-	//st‰nger textscroll trÂden
+	//st√§nger textscroll tr√•den
 	public void killBGTextScroll()
 	{
 		threadBGTextScroll.kill();
 	}
 
 	//--------------------------
-	//startar stj‰rnanimeringen
+	//startar stj√§rnanimeringen
 	public void startBGStars()
 	{
 		threadBGStars = new ThreadIntroPanel(300, "AnimateStars", this);
 		threadBGStars.start();
 	}
-	//st‰nger stj‰rnanimeringen
+	//st√§nger stj√§rnanimeringen
 	public void killBGStars()
 	{
 		threadBGStars.kill();
@@ -512,7 +512,7 @@ public class IntroPanel extends JPanel implements KeyListener
 		threadInsertCoin = new ThreadIntroPanel(350, "InsertCoin", this);
 		threadInsertCoin.start();
 	}
-	//st‰nger insertcoin blinken
+	//st√§nger insertcoin blinken
 	public void killInsertCoin()
 	{
 		threadInsertCoin.kill();
@@ -521,22 +521,22 @@ public class IntroPanel extends JPanel implements KeyListener
 //----------------------------------------------------------------
 //----------------------------------------------------------------
 //----------------------------------------------------------------
-	//s‰tter vilken keylistener som ska anv‰ndas
+	//s√§tter vilken keylistener som ska anv√§ndas
 	public void setListenerChoice(String aListenerChoice)
 	{
 		listenerChoice = aListenerChoice;
 	}
-	//s‰tter om keylistenern ska vara av eller pÂ
+	//s√§tter om keylistenern ska vara av eller p√•
 	public void setListenerStatus(boolean aGo)
 	{
 		go = aGo;
 	}
 	//-------------------------------
 
-	//Ska keylistenern vara av eller pÂ?
+	//Ska keylistenern vara av eller p√•?
 	boolean go = false;
 
-	//Best‰mmer vilken lyssnare som ska anv‰ndas
+	//Best√§mmer vilken lyssnare som ska anv√§ndas
 	private String listenerChoice = "BGText";
 
 	//tangentbords lyssnare
@@ -546,19 +546,19 @@ public class IntroPanel extends JPanel implements KeyListener
 		{
 			//--------------------
 
-			//KeyListener 1, st‰nger textscrollningen med
+			//KeyListener 1, st√§nger textscrollningen med
 			//Enter
 			if(listenerChoice == "BGText")
 			{
 				//Enter
 				if(event.getKeyCode() == 10)
 				{
-					//N‰r anv‰ndaren trycker pÂ Enter
-					//st‰ngs trÂden ner och KeyListenern byter
+					//N√§r anv√§ndaren trycker p√• Enter
+					//st√§ngs tr√•den ner och KeyListenern byter
 					//lyssnare
 					setListenerChoice("InsertCoin");
 
-					//S‰tter BGText's position till 60
+					//S√§tter BGText's position till 60
 					setBGTextY(30);
 
 					//Ritar ut bakgrunden och BGText
@@ -569,7 +569,7 @@ public class IntroPanel extends JPanel implements KeyListener
 			//InsertCoin menyn
 
 			//--------------------
-			//KeyListener 2, st‰nger av InsertCoin blinken
+			//KeyListener 2, st√§nger av InsertCoin blinken
 			//och laddar menyn med
 			//Enter
 			else if(listenerChoice == "InsertCoin")
@@ -577,12 +577,12 @@ public class IntroPanel extends JPanel implements KeyListener
 				//Enter
 				if(event.getKeyCode() == 10)
 				{
-					//St‰nger trÂden med InsertCoin "blinken"
+					//St√§nger tr√•den med InsertCoin "blinken"
 					killInsertCoin();
 					setListenerChoice("Choices");
 
 					//Ritar ut bakgrunden, BGText
-					//Meny valen samnt markˆren
+					//Meny valen samnt mark√∂ren
 					paintScreen("Choices");
 					repaint();
 				}
@@ -590,69 +590,69 @@ public class IntroPanel extends JPanel implements KeyListener
 
 			//--------------------
 
-			//KeyListener 3, flyttar markˆren och markerar
-			//ett val samt st‰nger ner introPanel och
-			//startar spelet/st‰nger av programmet med
+			//KeyListener 3, flyttar mark√∂ren och markerar
+			//ett val samt st√§nger ner introPanel och
+			//startar spelet/st√§nger av programmet med
 			//Enter
 			else if(listenerChoice == "Choices")
 			{
-				//UppÂt-Pil
+				//Upp√•t-Pil
 				if(event.getKeyCode() == 38)
 				{
 					menu_sfx1.getSFX("menu_sfx1.wav");
 
-					//Om markˆren ‰r pÂ position 1,
+					//Om mark√∂ren √§r p√• position 1,
 					//flytta till position 3
 					if(position == 1)
 					{
 						position = 2;
 					}
-					//Om markˆren ‰r pÂ position 2,
+					//Om mark√∂ren √§r p√• position 2,
 					//flytta till position 1
 					else if(position == 2)
 					{
 						position = 1;
 					}
 
-					//Skicka nya markˆr positionen sÂ markˆren
+					//Skicka nya mark√∂r positionen s√• mark√∂ren
 					//byter Y position
 					setCursorPosition(position);
 					//Ritar ut nya positionen i bufferten
 					paintScreen("Choices");
-					//Ritar ut pÂ sk‰rmen
+					//Ritar ut p√• sk√§rmen
 					repaint();
 				}
-				//NerÂt-Pil
+				//Ner√•t-Pil
 				else if(event.getKeyCode() == 40)
 				{
 					menu_sfx1.getSFX("menu_sfx1.wav");
 
-					//Om markˆren ‰r pÂ position 1,
+					//Om mark√∂ren √§r p√• position 1,
 					//flytta till position 2
 					if(position == 1)
 					{
 						position = 2;
 					}
-					//Om markˆren ‰r pÂ position 2,
+					//Om mark√∂ren √§r p√• position 2,
 					//flytta till position 3
 					else if(position == 2)
 					{
 						position = 1;
 					}
 
-					//Skicka nya markˆr positionen sÂ markˆren
+					//Skicka nya mark√∂r positionen s√• mark√∂ren
 					//byter Y position
 					setCursorPosition(position);
 					//Ritar ut nya positionen i bufferten
 					paintScreen("Choices");
-					//Ritar ut pÂ sk‰rmen
+					//Ritar ut p√• sk√§rmen
 					repaint();
 				}
 
 				//Enter
 				else if(event.getKeyCode() == 10)
 				{
-					//Om positionen ‰r 1 n‰r anv‰ndare trycker Enter,
+					//Om positionen √§r 1 n√§r anv√§ndare trycker Enter,
 					//Starta spelet
 					if(position == 1)
 					{
@@ -660,7 +660,7 @@ public class IntroPanel extends JPanel implements KeyListener
 						//Spelar ljudeffekt
 						menu_sfx2.getSFX("menu_sfx2.wav");
 
-						//gˆmmer panelen
+						//g√∂mmer panelen
 						hidePanel();
 						menuMain.startGame();
 
@@ -668,11 +668,11 @@ public class IntroPanel extends JPanel implements KeyListener
 						System.out.println("Start Game");
 
 					}
-					//Om positionen ‰r 2 n‰r anv‰ndare trycker Enter,
+					//Om positionen √§r 2 n√§r anv√§ndare trycker Enter,
 					//Avsluta programmet
 					else if(position == 2)
 					{
-						//gˆmmer panelen
+						//g√∂mmer panelen
 						hidePanel();
 
 						System.out.println();
@@ -689,17 +689,17 @@ public class IntroPanel extends JPanel implements KeyListener
 				//--------------------
 			}
 
-			//Skriver ut KeyCode samt markˆrens YPosition
+			//Skriver ut KeyCode samt mark√∂rens YPosition
 			System.out.println();
 			System.out.println("KeyCode:           " + event.getKeyCode());
-			//Skriver ut Markˆrens position samt Y position
+			//Skriver ut Mark√∂rens position samt Y position
 			System.out.println("Cursor Position:   " + position);
 			System.out.println("Cursor Y Position: " + getCursorPosition());
 
-			//KeyCode 37 = V‰nsterPil
-			//KeyCode 39 = HˆgerPil
-			//KeyCode 38 = UppÂtPil
-			//KeyCode 40 = NerÂtPil
+			//KeyCode 37 = V√§nsterPil
+			//KeyCode 39 = H√∂gerPil
+			//KeyCode 38 = Upp√•tPil
+			//KeyCode 40 = Ner√•tPil
 			//KeyCode 10 = Enter
 			//KeyCode 32 = Space
 
